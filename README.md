@@ -1,5 +1,5 @@
 # vhdlCtb
-Dice Game with VHDL
+Dice Game with VHDL (VHDL program for creating bitmap files that can be downloaded to the EDA3000.)
 
 ### Dice Game: Rules
 
