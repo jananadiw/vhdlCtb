@@ -3,20 +3,19 @@
 #include "diceGameWin.h"
 
 INT APIENTRY WinMain(HINSTANCE hInstance,       // hInstance는 프로그램의 인스턴스
-HINSTANCE hPrevInstance,   // hPrevInstance는 바로 전에 실행된 현재 
-				   //프로그램의 인스턴스
-		       LPSTR lpCmdLine,	// lpCmpLine은 명령 행으로 입력된 프로그램 인수, 
+HINSTANCE hPrevInstance,   // hPrevInstance는 바로 전에 실행된 현재  //프로그램의 인스턴스
+LPSTR lpCmdLine,	// lpCmpLine은 명령 행으로 입력된 프로그램 인수, 
 // main에서의 argv
-		       INT nCmdShow)		// 프로그램이 실행될 형태, 최소화, 보통 모양 같은 형태
+INT nCmdShow)		// 프로그램이 실행될 형태, 최소화, 보통 모양 같은 형태
 {
-	MSG iMessage;				// 윈도우 메시지지를 받기 위한 메시지 구조체 변수
+	MSG iMessage;	// 윈도우 메시지지를 받기 위한 메시지 구조체 변수
 	
 	  // 다이얼 로그를 생성하는 API
 	  // Return : 생성한 다이얼로그의 핸들
 	HWND hDlgWnd = CreateDialog(hInstance,	// 프로그램 인스턴스
-				       MAKEINTRESOURCE(IDD_MAIN), // 다이얼로그의 리소스(ID)
-				       NULL,		// 부모 핸들(부모 윈도우가 없으므로 NULL)
-				       (DLGPROC)MainProc);  // 윈도우 메시지를 받을 프로시저의 이름
+	MAKEINTRESOURCE(IDD_MAIN), // 다이얼로그의 리소스(ID)
+	NULL,		// 부모 핸들(부모 윈도우가 없으므로 NULL)
+	(DLGPROC)MainProc);  // 윈도우 메시지를 받을 프로시저의 이름
 	ShowWindow(hDlgWnd, SW_SHOW);	// 생성한 다이얼 로그를 보여준다 (숨길땐 SW_HIDE)
 
 	// 윈도우 어플리케이션이 실행되면 메시지 큐가 생성됨, 메시지 큐에는 윈도우 메시지가 저장 된다.
@@ -25,11 +24,11 @@ HINSTANCE hPrevInstance,   // hPrevInstance는 바로 전에 실행된 현재
 // 루프가 끝나  프로그램이 종료 된다.
 	while(GetMessage(&iMessage, ZERO, ZERO, ZERO))
 	{
-		TranslateMessage(&iMessage); // 키보드 메시지를 번역. 즉 키를 눌렀다는
+	TranslateMessage(&iMessage); // 키보드 메시지를 번역. 즉 키를 눌렀다는
 // WM_KEYDOWN이벤트가 들어오면, 그리고 그 키가
 // 문자라면 이 함수는 문자가 입력 되었다는 메시지 
 // WM_CHAR을 만듦.
-		DispatchMessage(&iMessage);  // 해당하는 프로시져에 메시지를 보낸다
+	DispatchMessage(&iMessage);  // 해당하는 프로시져에 메시지를 보낸다
 	}					//메시지 루프가 끝나면 프로그램이 종료 된다.
 	return iMessage.wParam;
 }
